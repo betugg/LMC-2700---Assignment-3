@@ -5,7 +5,7 @@ class Movie {
     constructor(title, rating, haveWatched) {
         this.title = title;
         this.rating = rating;
-        this.haveWatched;
+        this.haveWatched = haveWatched;
     }
 }
 
@@ -26,10 +26,10 @@ let printMovies = () => {
     console.log("Printing all movies....");
     let index = 0;
     while (allMovies[index] != null) {
-        console.log(allMovies[index].title + ", rating of " + allMovies[index].rating + ", haveWatched: " + allMovies[index].haveWatched);
+        console.log(allMovies[index].title + ", rating of " + allMovies[index].rating + ", havewatched: " + allMovies[index].haveWatched);
         index++;
     }
-    console.log("You have " + index + " movies in total");
+    console.log("\nYou have " + index + " movies in total");
 }
 
 
@@ -44,7 +44,7 @@ let highRatings = (rating) => {
             numOfMatches++;
         }
     }
-    console.log("In total, there are " + numOfMatches + " matches");
+    console.log("\nIn total, there are " + numOfMatches + " matches");
 }
 
 
@@ -54,7 +54,11 @@ let changeWatched = (title) => {
     while (allMovies[index].title != title) {
         index++;
     }
-    // allMovies[index].hasWatched.toggle();
+    if (allMovies[index].haveWatched) {
+        allMovies[index].haveWatched = false;
+    } else {
+        allMovies[index].haveWatched = true;
+    }
     console.log("changing the status of the movie...");
 }
 
