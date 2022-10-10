@@ -2,9 +2,11 @@ let allMovies = [];
 
 //Define a movie class with parameters title (string), rating (number) and haveWatched (boolean)
 class Movie {
-    title;
-    rating;
-    haveWatched;
+    constructor(title, rating, haveWatched) {
+        this.title = title;
+        this.rating = rating;
+        this.haveWatched;
+    }
 }
 
 //add a movie OBJECT to the allMovies array
@@ -14,37 +16,46 @@ let addMovie = (movie) => {
         index++;
     }
     allMovies[index] = movie;
+    console.log("A new movie is added");
 }
 
 //iterate through all elements of allMovies array
 //print out to console in a correct format
 //print out the total number of movies in allMovies array
 let printMovies = () => {
+    console.log("Printing all movies....");
     let index = 0;
     while (allMovies[index] != null) {
-        console.log(allMovies[index]);
+        console.log(allMovies[index].title + ", rating of " + allMovies[index].rating + ", haveWatched: " + allMovies[index].haveWatched);
         index++;
     }
-    console.log(index + 1);
+    console.log("You have " + index + " movies in total");
 }
 
 
 //print out to console, only the movies that has a rating higher than rating(argument)
 //print out the total number of matches
 let highRatings = (rating) => {
+    console.log("printing movie that has a rating higher than " + rating);
     let numOfMatches = 0;
     for (i = 0; i < allMovies.length; i++) {
         if (allMovies[i].rating > rating) {
-            console.log(allMovies[i]);
+            console.log(allMovies[i].title + " has a rating of " + allMovies[i].rating);
             numOfMatches++;
         }
     }
+    console.log("In total, there are " + numOfMatches + " matches");
 }
 
 
 //Toggle the 'haveWatched' property of the specified movie 
 let changeWatched = (title) => {
-
+    let index = 0;
+    while (allMovies[index].title != title) {
+        index++;
+    }
+    // allMovies[index].hasWatched.toggle();
+    console.log("changing the status of the movie...");
 }
 
 
